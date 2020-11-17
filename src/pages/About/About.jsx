@@ -5,7 +5,7 @@ import * as S from "./About.style";
 function About() {
   return (
     <Section>
-      <Table child1="Name" child2="Surname" child3="Email" />
+      <Table />
       <S.ButtonBox>
         <Button color="primary">Submit</Button>
       </S.ButtonBox>
