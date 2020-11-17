@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Table, Section, Button } from "../../components";
 import * as S from "./Home.style";
 
-function sendData(radio, student, e) {
+function sendData(studentid, e) {
   e.preventDefault();
   fetch(`http://localhost:8080/attendance`, {
     method: "POST",
@@ -10,17 +10,16 @@ function sendData(radio, student, e) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      student_id: student.id,
-      attendance: radio,
+      student_id: studentid,
+      attendance: "true",
       date: new Date(),
     }),
   });
 }
 
 function Home() {
-  const [radio, setRadio] = useState();
   const [students, setStudents] = useState();
-  console.log(students);
+  const [studentid, setStudentsId] = useState();
 
   useEffect(() => {
     fetch(`http://localhost:8080/students`)
@@ -32,10 +31,12 @@ function Home() {
   return (
     <>
       <Section>
-        <form onSubmit={(e) => sendData(radio, students, e)}>
+        <form onSubmit={(e) => sendData(studentid, e)}>
           <Table
             students={students}
-            callback={(e) => setRadio(e.target.value)}
+            callback={(e) => {
+              setStudentsId(e.target.value);
+            }}
           />
           <S.ButtonBox>
             <Button color="primary">Submit</Button>

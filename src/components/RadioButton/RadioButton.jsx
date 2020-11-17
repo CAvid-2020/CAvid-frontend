@@ -1,8 +1,13 @@
 import React from "react";
 
-function RadioButton({ callback }) {
+function RadioButton({ callback, value }) {
   return (
-    <input type="radio" value="true" name="student" onChange={callback}></input>
+    <input
+      type="radio"
+      value={value}
+      name="student"
+      onChange={callback}
+    ></input>
   );
 }
 

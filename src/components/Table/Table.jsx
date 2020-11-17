@@ -26,7 +26,7 @@ function Table({ students, callback }) {
               <td>{student.surname}</td>
               <td>{student.email}</td>
               <td>
-                <RadioButton callback={callback} />
+                <RadioButton callback={callback} value={student.id} />
               </td>
             </S.Tr>
           ))}
