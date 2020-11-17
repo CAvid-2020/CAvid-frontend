@@ -2,13 +2,20 @@ import React from "react";
 import * as S from "./Table.style";
 import { RadioButton } from "../../components";
 
-function Table({ students, callback }) {
-  const thArr = [
-    { th: "Name" },
-    { th: "Surname" },
-    { th: "Email" },
-    { th: "Attendance" },
-  ];
+function Table({ students, callback, thArr }) {
+  switch (window.location.href) {
+    case "http://localhost:3000/about":
+      thArr = [
+        { th: "Name" },
+        { th: "Surname" },
+        { th: "Email" },
+        { th: "Attendance" },
+      ];
+      break;
+    default:
+      thArr = [{ th: "Name" }, { th: "Surname" }, { th: "Attendance" }];
+  }
+
   return (
     <S.Table>
       <S.Thead>
@@ -24,7 +31,6 @@ function Table({ students, callback }) {
             <S.Tr key={student.id}>
               <td>{student.name}</td>
               <td>{student.surname}</td>
-              <td>{student.email}</td>
               <td>
                 <RadioButton callback={callback} value={student.id} />
               </td>
