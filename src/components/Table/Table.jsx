@@ -27,15 +27,31 @@ function Table({ students, callback, thArr }) {
       </S.Thead>
       <S.Tbody>
         {students &&
-          students.map((student) => (
-            <S.Tr key={student.id}>
-              <td>{student.name}</td>
-              <td>{student.surname}</td>
-              <td>
-                <RadioButton callback={callback} value={student.id} />
-              </td>
-            </S.Tr>
-          ))}
+          students.map((student) => {
+            switch (window.location.href) {
+              case "http://localhost:3000/about":
+                return (
+                  <S.Tr key={student.id}>
+                    <td>{student.name}</td>
+                    <td>{student.surname}</td>
+                    <td>{student.email}</td>
+                    <td>
+                      <RadioButton callback={callback} value={student.id} />
+                    </td>
+                  </S.Tr>
+                );
+              default:
+                return (
+                  <S.Tr key={student.id}>
+                    <td>{student.name}</td>
+                    <td>{student.surname}</td>
+                    <td>
+                      <RadioButton callback={callback} value={student.id} />
+                    </td>
+                  </S.Tr>
+                );
+            }
+          })}
       </S.Tbody>
     </S.Table>
   );
