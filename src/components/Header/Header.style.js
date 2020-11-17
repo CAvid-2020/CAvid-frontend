@@ -5,7 +5,7 @@ export const Header = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 1px 1px 2px goldenrod;
+  box-shadow: 0 1px 1px 2px ${(props) => props.theme.lightGreen};
   padding: 1em;
   background-color: ${(props) => props.theme.darkGreen};
 `;
@@ -19,7 +19,7 @@ export const StyledLink = styled(Link)`
   &:hover {
     text-decoration: underline;
     transition: 0.5s;
-    color: goldenrod;
+    color: ${(props) => props.theme.lightGreen};
   }
   &:not(:last-child) {
     margin-right: 10px;
