@@ -4,7 +4,6 @@ import * as S from "./Home.style";
 
 function sendData(radio, student, e) {
   e.preventDefault();
-  console.log(radio);
   fetch(`http://localhost:8080/attendance`, {
     method: "POST",
     headers: {
@@ -21,7 +20,6 @@ function sendData(radio, student, e) {
 function Home() {
   const [radio, setRadio] = useState();
   const [students, setStudents] = useState();
-  console.log(radio);
   console.log(students);
 
   useEffect(() => {
@@ -37,7 +35,7 @@ function Home() {
         <form onSubmit={(e) => sendData(radio, students, e)}>
           <Table
             students={students}
-            callback={(e) => console.log(e.target.value)}
+            callback={(e) => setRadio(e.target.value)}
           />
           <S.ButtonBox>
             <Button color="primary">Submit</Button>

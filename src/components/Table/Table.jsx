@@ -2,7 +2,7 @@ import React from "react";
 import * as S from "./Table.style";
 import { RadioButton } from "../../components";
 
-function Table({ students }) {
+function Table({ students, callback }) {
   const thArr = [
     { th: "Name" },
     { th: "Surname" },
@@ -26,7 +26,7 @@ function Table({ students }) {
               <td>{student.surname}</td>
               <td>{student.email}</td>
               <td>
-                <RadioButton />
+                <RadioButton callback={callback} />
               </td>
             </S.Tr>
           ))}

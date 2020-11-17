@@ -2,12 +2,7 @@ import React from "react";
 
 function RadioButton({ callback }) {
   return (
-    <input
-      type="radio"
-      value="false"
-      name="student"
-      onChange={callback}
-    ></input>
+    <input type="radio" value="true" name="student" onChange={callback}></input>
   );
 }
 
