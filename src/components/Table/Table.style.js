@@ -7,6 +7,9 @@ export const Table = styled.table`
   border: 1px solid ${({ theme }) => theme.textColor};
   color: ${({ theme }) => theme.textColor};
   background-color: ${({ theme }) => theme.lightGreen};
+  @media only screen and (max-width: 500px) {
+    font-size: small;
+  }
 `;
 
 export const Thead = styled.thead`
