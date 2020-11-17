@@ -3,7 +3,7 @@ import * as S from "./Button.style";
 
 function Button({ children, handleClick, color }) {
   return (
-    <S.Button onClick={handleClick} color={color}>
+    <S.Button onClick={handleClick} color={color} type="submit">
       {children}
     </S.Button>
   );
