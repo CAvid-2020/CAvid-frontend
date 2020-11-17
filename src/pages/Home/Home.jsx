@@ -33,6 +33,7 @@ function Home() {
   return (
     <>
       <Section>
+        <S.H2>Register Your Attendance for CA Front-End</S.H2>
         <form onSubmit={(e) => sendData(studentid, e, history)}>
           <Table
             students={students}
