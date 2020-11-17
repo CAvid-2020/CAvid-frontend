@@ -2,9 +2,7 @@ import styled from "styled-components";
 
 export const Button = styled.button`
   background-color: ${(props) =>
-    props.color === "primary"
-      ? props.theme.primary.background
-      : props.theme.secondary.background};
+    props.color === "primary" ? props.theme.darkGreen : props.theme.lightGreen};
   color: ${(props) =>
     props.color === "primary"
       ? props.theme.primary.color
@@ -17,12 +15,13 @@ export const Button = styled.button`
   &:hover {
     background-color: ${(props) =>
       props.color === "primary"
-        ? props.theme.primary.hover.background
-        : props.theme.secondary.hover.background};
+        ? props.theme.lightGreen
+        : props.theme.darkGreen};
     color: ${(props) =>
-      props.color === "primary"
-        ? props.theme.primary.hover.color
-        : props.theme.secondary.hover.color};
+      props.color === "primary" ? "#111" : props.theme.secondary.hover.color};
     font-weight: bolder;
+  }
+  &:focus {
+    outline: none;
   }
 `;
