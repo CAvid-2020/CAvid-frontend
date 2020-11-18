@@ -66,6 +66,7 @@ function RegisterAttendance() {
             }}
           >
             <Table
+              tharr={[{ th: "Name" }, { th: "Surname" }, { th: "Attendance" }]}
               students={students}
               callback={(e) => {
                 setStudentsId(e.target.value);

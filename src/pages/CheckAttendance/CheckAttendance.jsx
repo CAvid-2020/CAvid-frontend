@@ -77,7 +77,11 @@ function CheckAttendance() {
           placeholderText="Select a weekday"
         />
       </S.Box>
-      <Table students={students} deletes={(e) => deleteButton(e)} />
+      <Table
+        tharr={[{ th: "Name" }, { th: "Surname" }, { th: "Email" }, { th: "" }]}
+        students={students}
+        deletes={(e) => deleteButton(e)}
+      />
     </Section>
   );
 }
