@@ -4,7 +4,7 @@ import { RadioButton, Button } from "../../components";
 
 function Table({ students, callback, thArr, deletes }) {
   switch (window.location.href) {
-    case "http://localhost:3000/about":
+    case "http://localhost:3000/check":
       thArr = [
         { th: "Name" },
         { th: "Surname" },
@@ -29,7 +29,7 @@ function Table({ students, callback, thArr, deletes }) {
         {students &&
           students.map((student) => {
             switch (window.location.href) {
-              case "http://localhost:3000/about":
+              case "http://localhost:3000/check":
                 return (
                   <S.Tr key={student.id}>
                     <td>{student.name}</td>

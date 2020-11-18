@@ -64,9 +64,9 @@ function CheckAttendance() {
 
   return (
     <Section>
-      <S.H2>Check Attendances in CA Front-End</S.H2>
       <S.Box>
-        <span>Select date: </span>
+        <S.H2>Check Attendances in CA Front-End</S.H2>
+        <span>Select date:</span>
         <S.StyledDatePicker
           dateFormat="yyyy/MM/dd"
           selected={startDate}
