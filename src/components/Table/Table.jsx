@@ -1,8 +1,8 @@
 import React from "react";
 import * as S from "./Table.style";
-import { RadioButton } from "../../components";
+import { RadioButton, Button } from "../../components";
 
-function Table({ students, callback, thArr }) {
+function Table({ students, callback, thArr, deletes }) {
   switch (window.location.href) {
     case "http://localhost:3000/about":
       thArr = [
@@ -35,7 +35,13 @@ function Table({ students, callback, thArr }) {
                     <td>{student.name}</td>
                     <td>{student.surname}</td>
                     <td>{student.email}</td>
-                    <td>{student.attendance}</td>
+                    <td>
+                      {
+                        <Button handleClick={deletes} value={student.id}>
+                          Delete
+                        </Button>
+                      }
+                    </td>
                   </S.Tr>
                 );
               default:

@@ -49,19 +49,35 @@ function About() {
       });
   }, [startDate]);
 
+  function deleteButton(e) {
+    const pass = prompt("Please enter the password");
+    const studentId = e.target.value;
+    if (pass != null) {
+      fetch(`http://localhost:8080/delete/${studentId}`, {
+        method: "DELETE",
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+        body: JSON.stringify({ pass }),
+      });
+    }
+  }
+
   return (
     <Section>
       <S.H2>Check Attendances in CA Front-End</S.H2>
-      <DatePicker
-        dateFormat="yyyy/MM/dd"
-        selected={startDate}
-        onChange={(data) => {
-          setStartDate(data);
-        }}
-        filterDate={isWeekday}
-        placeholderText="Select a weekday"
-      />
-      <Table students={students} />
+      <S.Box>
+        <DatePicker
+          dateFormat="yyyy/MM/dd"
+          selected={startDate}
+          onChange={(data) => {
+            setStartDate(data);
+          }}
+          filterDate={isWeekday}
+          placeholderText="Select a weekday"
+        />
+      </S.Box>
+      <Table students={students} deletes={(e) => deleteButton(e)} />
     </Section>
   );
 }
