@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Section, Table } from "../../components";
 import * as S from "./CheckAttendance.style";
@@ -68,7 +67,7 @@ function CheckAttendance() {
       <S.H2>Check Attendances in CA Front-End</S.H2>
       <S.Box>
         <span>Select date: </span>
-        <DatePicker
+        <S.StyledDatePicker
           dateFormat="yyyy/MM/dd"
           selected={startDate}
           onChange={(data) => {
