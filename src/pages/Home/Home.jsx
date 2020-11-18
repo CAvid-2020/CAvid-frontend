@@ -15,7 +15,12 @@ function sendData(studentid, e, history) {
       attendance: "true",
       date: new Date(),
     }),
-  }).then(() => history.push("/about"));
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      history.push("/about");
+    })
+    .catch((err) => console.log(err));
 }
 
 function Home() {

@@ -35,9 +35,7 @@ function Table({ students, callback, thArr }) {
                     <td>{student.name}</td>
                     <td>{student.surname}</td>
                     <td>{student.email}</td>
-                    <td>
-                      <RadioButton callback={callback} value={student.id} />
-                    </td>
+                    <td>{student.attendance}</td>
                   </S.Tr>
                 );
               default:
