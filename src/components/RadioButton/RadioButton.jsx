@@ -1,13 +1,14 @@
 import React from "react";
+import * as S from "./RadioButton.style";
 
 function RadioButton({ callback, value }) {
   return (
-    <input
+    <S.RadioButton
       type="radio"
       value={value}
       name="student"
       onChange={callback}
-    ></input>
+    ></S.RadioButton>
   );
 }
 

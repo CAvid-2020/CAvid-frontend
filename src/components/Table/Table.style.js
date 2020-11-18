@@ -22,6 +22,17 @@ export const Tbody = styled.tbody`
 `;
 
 export const Tr = styled.tr`
+  &:hover {
+    background-color: ${({ theme }) => theme.onhover};
+    color: white;
+    Button {
+      background-color: ${({ theme }) => theme.onhover};
+      &:hover {
+        background-color: ${({ theme }) => theme.textColor};
+        color: white;
+      }
+    }
+  }
   border: 1px solid ${({ theme }) => theme.textColor};
 
   & th {
