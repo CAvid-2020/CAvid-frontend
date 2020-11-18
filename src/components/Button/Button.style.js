@@ -20,7 +20,7 @@ export const Button = styled.button`
     color: ${(props) =>
       props.color === "primary" ? "#111" : props.theme.secondary.hover.color};
     font-weight: bolder;
-    border: 1px solid ${({ theme }) => theme.textColor};
+    /* border: 1px solid ${({ theme }) => theme.textColor}; */
   }
   &:focus {
     outline: ${(props) =>

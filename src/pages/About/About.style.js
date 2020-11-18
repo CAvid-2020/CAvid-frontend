@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-export const ButtonBox = styled.div`
-  margin-top: 1em;
+export const Box = styled.div`
+  margin: 1em;
   text-align: center;
 `;
 
