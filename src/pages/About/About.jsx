@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Section, Table } from "../../components";
 import * as S from "./About.style";
@@ -67,7 +66,7 @@ function About() {
     <Section>
       <S.H2>Check Attendances in CA Front-End</S.H2>
       <S.Box>
-        <DatePicker
+        <S.StyledDatePicker
           dateFormat="yyyy/MM/dd"
           selected={startDate}
           onChange={(data) => {
