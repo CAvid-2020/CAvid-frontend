@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Table, Section, Button } from "../../components";
-import * as S from "./Home.style";
+import * as S from "./RegisterAttendance.style";
 import { useHistory } from "react-router-dom";
 
 function sendData(studentid, history) {
@@ -17,12 +17,12 @@ function sendData(studentid, history) {
   })
     .then((res) => res.json())
     .then(() => {
-      history.push("/about");
+      history.push("/check");
     })
     .catch((err) => console.log(err));
 }
 
-function Home() {
+function RegisterAttendance() {
   const [students, setStudents] = useState();
   const [studentid, setStudentsId] = useState();
   const history = useHistory();
@@ -72,4 +72,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default RegisterAttendance;

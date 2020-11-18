@@ -5,8 +5,8 @@ function Header() {
   return (
     <S.Header>
       <S.Actions>
-        <S.StyledLink to="/">Home</S.StyledLink>
-        <S.StyledLink to="/about">About</S.StyledLink>
+        <S.StyledLink to="/">Register Attendance</S.StyledLink>
+        <S.StyledLink to="/check">Check Attendance</S.StyledLink>
       </S.Actions>
     </S.Header>
   );

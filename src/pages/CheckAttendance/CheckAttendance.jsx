@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Section, Table } from "../../components";
-import * as S from "./About.style";
+import * as S from "./CheckAttendance.style";
 
-function About() {
+function CheckAttendance() {
   const [students, setStudents] = useState();
   const [startDate, setStartDate] = useState(new Date());
 
@@ -67,6 +67,7 @@ function About() {
     <Section>
       <S.H2>Check Attendances in CA Front-End</S.H2>
       <S.Box>
+        <span>Select date: </span>
         <DatePicker
           dateFormat="yyyy/MM/dd"
           selected={startDate}
@@ -82,4 +83,4 @@ function About() {
   );
 }
 
-export default About;
+export default CheckAttendance;

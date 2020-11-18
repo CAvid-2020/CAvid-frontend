@@ -22,6 +22,6 @@ export const StyledLink = styled(Link)`
     color: ${(props) => props.theme.lightGreen};
   }
   &:not(:last-child) {
-    margin-right: 10px;
+    margin-right: 30px;
   }
 `;
