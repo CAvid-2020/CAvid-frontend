@@ -31,9 +31,8 @@ function Home() {
     fetch(`http://localhost:8080/attendance`)
       .then((res) => res.json())
       .then((data) => {
-        const smth = [...new Set(data.map((e) => e.student_id))];
-        const asd = Number(studentid);
-        if (smth.includes(asd)) {
+        const selected = [...new Set(data.map((e) => e.student_id))];
+        if (selected.includes(Number(studentid))) {
           alert("You have been already checked in");
         } else {
           sendData(studentid, history);
