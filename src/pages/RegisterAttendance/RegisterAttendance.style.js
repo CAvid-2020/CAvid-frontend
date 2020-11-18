@@ -18,3 +18,11 @@ export const H2 = styled.h2`
     font-size: 1.1em;
   }
 `;
+
+export const Error = styled.h1`
+  text-align: center;
+  color: red;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: black;
+`;
