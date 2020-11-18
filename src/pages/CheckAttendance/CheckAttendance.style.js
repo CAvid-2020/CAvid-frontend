@@ -4,6 +4,10 @@ import DatePicker from "react-datepicker";
 export const Box = styled.div`
   margin: 1em;
   text-align: center;
+  span {
+    margin-right: 10px;
+    font-weight: 600;
+  }
 `;
 
 export const H2 = styled.h2`
@@ -17,7 +21,7 @@ export const H2 = styled.h2`
 export const StyledDatePicker = styled(DatePicker)`
   background-color: ${({ theme }) => theme.lightGreen};
   border: 1px solid ${({ theme }) => theme.textColor};
-  width: 80%;
+  /* width: 80%; */
   text-align: center;
   height: 2em;
   border-radius: 5px;
