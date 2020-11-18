@@ -3,8 +3,7 @@ import { Table, Section, Button } from "../../components";
 import * as S from "./Home.style";
 import { useHistory } from "react-router-dom";
 
-function sendData(studentid, e, history) {
-  e.preventDefault();
+function sendData(studentid, history) {
   fetch(`http://localhost:8080/attendance`, {
     method: "POST",
     headers: {
@@ -17,7 +16,7 @@ function sendData(studentid, e, history) {
     }),
   })
     .then((res) => res.json())
-    .then((data) => {
+    .then(() => {
       history.push("/about");
     })
     .catch((err) => console.log(err));
@@ -27,6 +26,20 @@ function Home() {
   const [students, setStudents] = useState();
   const [studentid, setStudentsId] = useState();
   const history = useHistory();
+
+  function validateData() {
+    fetch(`http://localhost:8080/attendance`)
+      .then((res) => res.json())
+      .then((data) => {
+        const smth = [...new Set(data.map((e) => e.student_id))];
+        const asd = Number(studentid);
+        if (smth.includes(asd)) {
+          alert("You have been already checked in");
+        } else {
+          sendData(studentid, history);
+        }
+      });
+  }
 
   useEffect(() => {
     fetch(`http://localhost:8080/students`)
@@ -39,7 +52,12 @@ function Home() {
     <>
       <Section>
         <S.H2>Register Your Attendance for CA Front-End</S.H2>
-        <form onSubmit={(e) => sendData(studentid, e, history)}>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            validateData();
+          }}
+        >
           <Table
             students={students}
             callback={(e) => {
