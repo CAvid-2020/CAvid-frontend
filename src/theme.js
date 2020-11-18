@@ -1,4 +1,5 @@
 const theme = {
+  onhover: "#7dd639",
   light: "#C1D2D9",
   darkRed: "#A60311",
   lightRed: "#D90416",
