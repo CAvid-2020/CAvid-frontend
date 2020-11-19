@@ -20,6 +20,26 @@ function sendData(studentid, history) {
     .catch((err) => console.log(err));
 }
 
+const convertDate = (data) => {
+  data = data.toString();
+  let parts = data.split(" ");
+  let months = {
+    Jan: "01",
+    Feb: "02",
+    Mar: "03",
+    Apr: "04",
+    May: "05",
+    Jun: "06",
+    Jul: "07",
+    Aug: "08",
+    Sep: "09",
+    Oct: "10",
+    Nov: "11",
+    Dec: "12",
+  };
+  return parts[3] + "-" + months[parts[1]] + "-" + parts[2];
+};
+
 function RegisterAttendance() {
   const [students, setStudents] = useState();
   const [studentid, setStudentsId] = useState();
@@ -30,7 +50,10 @@ function RegisterAttendance() {
     fetch(`http://localhost:8080/attendance`)
       .then((res) => res.json())
       .then((data) => {
-        const selected = [...new Set(data.map((e) => e.student_id))];
+        const dataFilter = data.filter(
+          (e) => e.date.slice(0, 10) === convertDate(new Date())
+        );
+        const selected = [...new Set(dataFilter.map((e) => e.student_id))];
         if (selected.includes(Number(studentid))) {
           alert("You have been already checked in");
         } else {
