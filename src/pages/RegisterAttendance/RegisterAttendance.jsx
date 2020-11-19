@@ -43,6 +43,8 @@ const convertDate = (data) => {
 function RegisterAttendance() {
   const [students, setStudents] = useState();
   const [studentid, setStudentsId] = useState();
+  const [password, setPassword] = useState();
+
   function time() {
     var d = new Date();
     var n = d.getHours();
@@ -67,6 +69,11 @@ function RegisterAttendance() {
   }
 
   useEffect(() => {
+    fetch(`http://localhost:8080/passvalidation`)
+      .then((res) => res.json())
+      .then((data) => {
+        setPassword(data);
+      });
     fetch(`http://localhost:8080/students`)
       .then((res) => res.json())
       .then((data) => {
@@ -76,7 +83,7 @@ function RegisterAttendance() {
 
   return (
     <>
-      {time() >= 18 && time() <= 22 ? (
+      {time() >= 18 && time() <= 22 && prompt("Enter password") === password ? (
         <Section>
           <S.H2>Register Your Attendance for CA Front-End</S.H2>
           <form
