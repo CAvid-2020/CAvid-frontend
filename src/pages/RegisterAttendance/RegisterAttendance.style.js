@@ -26,3 +26,8 @@ export const Error = styled.h1`
   padding: 5px;
   background-color: black;
 `;
+
+export const NotifBox = styled.div`
+  width: 100%;
+  padding: 1em;
+`;
