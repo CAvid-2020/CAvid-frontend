@@ -40,6 +40,8 @@ const convertDate = (data) => {
   return parts[3] + "-" + months[parts[1]] + "-" + parts[2];
 };
 
+const pass = prompt("Enter password");
+
 function RegisterAttendance() {
   const [students, setStudents] = useState();
   const [studentid, setStudentsId] = useState();
@@ -72,7 +74,7 @@ function RegisterAttendance() {
 
   return (
     <>
-      {time >= 18 && time <= 22 ? (
+      {pass === password && time() >= 18 && time() <= 22 ? (
         <Section>
           <S.H2>Register Your Attendance for CA Front-End</S.H2>
           <form
@@ -94,7 +96,7 @@ function RegisterAttendance() {
           </form>
         </Section>
       ) : (
-        <S.Error>The system only works in lecture time range</S.Error>
+        <S.Error>System error</S.Error>
       )}
     </>
   );
