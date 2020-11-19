@@ -3,26 +3,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import { Section, Table, TextInput, Button } from "../../components";
 import * as S from "./CheckRegister.style";
 
-function sendData(name, surname, email) {
-  const password = prompt("Please enter the password");
-  if (password != null) {
-    fetch(`http://localhost:8080/students`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ password, name, surname, email }),
-    })
-      .then(() => {
-        alert("Student has been added");
-      })
-      .catch((err) => console.log(err));
-  }
-}
-
 function CheckRegister() {
   const [students, setStudents] = useState();
-
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
   const [email, setEmail] = useState("");
@@ -41,6 +23,44 @@ function CheckRegister() {
       });
   }, []);
 
+  function deleteButton(e) {
+    const pass = prompt("Please enter the password");
+    const studentId = Number(e.target.value);
+    if (pass != null) {
+      fetch(`http://localhost:8080/students/delete/${studentId}`, {
+        method: "DELETE",
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+        body: JSON.stringify({ pass }),
+      }).then(() => {
+        setStudents(students.filter((item) => studentId !== item.id));
+      });
+    }
+  }
+
+  function sendData(name, surname, email) {
+    const password = prompt("Please enter the password");
+    if (password != null) {
+      fetch(`http://localhost:8080/students`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ password, name, surname, email }),
+      })
+        .then((data) => data.json())
+        .then((data) => {
+          if (data.status === 400) {
+            alert("Wrong password");
+          } else {
+            alert("Student has been added");
+          }
+        })
+        .catch((err) => console.log(err));
+    }
+  }
+
   return (
     <Section>
       <S.Box>
@@ -48,8 +68,9 @@ function CheckRegister() {
       </S.Box>
 
       <Table
-        tharr={[{ th: "Name" }, { th: "Surname" }, { th: "Email" }]}
+        tharr={[{ th: "Name" }, { th: "Surname" }, { th: "Email" }, { th: "" }]}
         students={students}
+        deletes={(e) => deleteButton(e)}
       />
       <S.Form
         onSubmit={(e) => {

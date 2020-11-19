@@ -37,6 +37,13 @@ function Table({ students, callback, tharr, deletes }) {
                     <td>{student.name}</td>
                     <td>{student.surname}</td>
                     <td>{student.email}</td>
+                    <td>
+                      {
+                        <Button handleClick={deletes} value={student.id}>
+                          Delete
+                        </Button>
+                      }
+                    </td>
                   </S.Tr>
                 );
 
