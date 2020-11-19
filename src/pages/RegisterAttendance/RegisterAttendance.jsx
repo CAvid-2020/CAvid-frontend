@@ -43,7 +43,11 @@ const convertDate = (data) => {
 function RegisterAttendance() {
   const [students, setStudents] = useState();
   const [studentid, setStudentsId] = useState();
-  const time = 19;
+  function time() {
+    var d = new Date();
+    var n = d.getHours();
+    return n;
+  }
   const history = useHistory();
 
   function validateData() {
@@ -72,7 +76,7 @@ function RegisterAttendance() {
 
   return (
     <>
-      {time >= 18 && time <= 22 ? (
+      {time() >= 18 && time() <= 22 ? (
         <Section>
           <S.H2>Register Your Attendance for CA Front-End</S.H2>
           <form
