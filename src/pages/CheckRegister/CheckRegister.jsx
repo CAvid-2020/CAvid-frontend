@@ -3,28 +3,6 @@ import "react-datepicker/dist/react-datepicker.css";
 import { Section, Table, TextInput, Button } from "../../components";
 import * as S from "./CheckRegister.style";
 
-function sendData(name, surname, email) {
-  const password = prompt("Please enter the password");
-  if (password != null) {
-    fetch(`http://localhost:8080/students`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ password, name, surname, email }),
-    })
-      .then((data) => data.json())
-      .then((data) => {
-        if (data.status === 400) {
-          alert("Wrong password");
-        } else {
-          alert("Student has been added");
-        }
-      })
-      .catch((err) => console.log(err));
-  }
-}
-
 function CheckRegister() {
   const [students, setStudents] = useState();
   const [name, setName] = useState("");
@@ -58,6 +36,28 @@ function CheckRegister() {
       }).then(() => {
         setStudents(students.filter((item) => studentId !== item.id));
       });
+    }
+  }
+
+  function sendData(name, surname, email) {
+    const password = prompt("Please enter the password");
+    if (password != null) {
+      fetch(`http://localhost:8080/students`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ password, name, surname, email }),
+      })
+        .then((data) => data.json())
+        .then((data) => {
+          if (data.status === 400) {
+            alert("Wrong password");
+          } else {
+            alert("Student has been added");
+          }
+        })
+        .catch((err) => console.log(err));
     }
   }
 
