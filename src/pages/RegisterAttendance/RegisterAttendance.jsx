@@ -45,7 +45,8 @@ const pass = prompt("Enter password");
 function RegisterAttendance() {
   const [students, setStudents] = useState();
   const [studentid, setStudentsId] = useState();
-  const time = 19;
+  const [password, setPassword] = useState();
+  const time = new Date().getHours();
   const history = useHistory();
 
   function validateData() {
@@ -70,11 +71,16 @@ function RegisterAttendance() {
       .then((data) => {
         setStudents(data);
       });
+    fetch(`http://localhost:8080/passvalidation`)
+      .then((res) => res.json())
+      .then((data) => {
+        setPassword(data);
+      });
   }, []);
 
   return (
     <>
-      {pass === password && time() >= 18 && time() <= 22 ? (
+      {pass === password && time >= 18 && time <= 22 ? (
         <Section>
           <S.H2>Register Your Attendance for CA Front-End</S.H2>
           <form
