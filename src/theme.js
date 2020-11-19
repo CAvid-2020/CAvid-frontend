@@ -1,4 +1,9 @@
 const theme = {
+  primaryColor: "rgb(34, 184, 212)",
+  primaryColorBackground: "rgb(34, 184, 212, 0.1)",
+  primaryColorLighter: "rgb(34, 184, 212, 0.9)",
+  secondaryColor: "rgb(238, 238, 238)",
+  secondaryColorLighter: "rgb(238, 238, 238, 1.2)",
   onhover: "#7dd639",
   light: "#C1D2D9",
   darkRed: "#A60311",
