@@ -50,7 +50,7 @@ function CheckAttendance() {
 
   function deleteButton(e) {
     const pass = prompt("Please enter the password");
-    const studentId = e.target.value;
+    const studentId = Number(e.target.value);
     if (pass != null) {
       fetch(`http://localhost:8080/delete/${studentId}`, {
         method: "DELETE",
@@ -58,6 +58,8 @@ function CheckAttendance() {
           "Content-type": "application/json; charset=UTF-8",
         },
         body: JSON.stringify({ pass }),
+      }).then(() => {
+        setStudents(students.filter((item) => studentId !== item.id));
       });
     }
   }
