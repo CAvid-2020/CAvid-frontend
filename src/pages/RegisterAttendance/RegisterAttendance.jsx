@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Table, Section, Button } from "../../components";
+import { Table, Section, Button, Notification } from "../../components";
 import * as S from "./RegisterAttendance.style";
 import { useHistory } from "react-router-dom";
 
@@ -46,6 +46,7 @@ function RegisterAttendance() {
   const [students, setStudents] = useState();
   const [studentid, setStudentsId] = useState();
   const [password, setPassword] = useState();
+  const [error, setError] = useState(false);
   const time = new Date().getHours();
   const history = useHistory();
 
@@ -58,7 +59,7 @@ function RegisterAttendance() {
         );
         const selected = [...new Set(dataFilter.map((e) => e.student_id))];
         if (selected.includes(Number(studentid))) {
-          alert("You have been already checked in");
+          setError(true);
         } else {
           sendData(studentid, history);
         }
@@ -77,12 +78,16 @@ function RegisterAttendance() {
         setPassword(data);
       });
   }, []);
-
   return (
     <>
       {pass === password && time >= 18 && time <= 22 ? (
         <Section>
           <S.H2>Register Your Attendance for CA Front-End</S.H2>
+          {error && (
+            <Notification color="error" handleChange={() => setError(false)}>
+              "You already checked in"
+            </Notification>
+          )}
           <form
             onSubmit={(e) => {
               e.preventDefault();

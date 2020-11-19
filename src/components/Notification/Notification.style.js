@@ -1,9 +1,14 @@
 import styled from "styled-components";
 
+export const Box = styled.div`
+  padding: 1em 0;
+`;
+
 export const NotificationBox = styled.div`
-  width: 100%;
   font-size: 1em;
-  padding: 1em 0 1em 1em;
+  padding: 1em 0;
+  padding-left: 1em;
+  border-radius: 6px;
   color: white;
   font-weight: bolder;
   background-color: ${(props) =>
@@ -11,14 +16,12 @@ export const NotificationBox = styled.div`
 `;
 
 export const NotificationButton = styled.button`
-  position: absolute;
-  color: white;
-  width: 1em;
+  float: right;
   border-radius: 50%;
-  top: 26px;
-  right: 12px;
-  background: black;
-  padding: 0;
   border: none;
+  background-color: black;
+  color: white;
+  margin-right: 8px;
+  margin-top: -8px;
   cursor: pointer;
 `;
