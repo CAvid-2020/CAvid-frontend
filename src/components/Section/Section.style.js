@@ -6,7 +6,7 @@ export const Section = styled.section`
 `;
 
 export const Container = styled.div`
-  max-width: 760px;
+  max-width: 920px;
   padding: 1em 2em;
   margin: 0 auto;
   @media only screen and (max-width: 500px) {

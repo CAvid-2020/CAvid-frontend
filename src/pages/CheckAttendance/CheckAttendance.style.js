@@ -19,12 +19,12 @@ export const H2 = styled.h2`
 `;
 
 export const StyledDatePicker = styled(DatePicker)`
-  background-color: ${({ theme }) => theme.lightGreen};
+  background-color: ${({ theme }) => theme.primaryColorLighter};
   border: 1px solid ${({ theme }) => theme.textColor};
   /* width: 80%; */
   text-align: center;
   height: 2em;
   border-radius: 5px;
-  color: ${({ theme }) => theme.darkGreen};
+  color: ${({ theme }) => theme.secondaryColor};
   font-weight: bold;
 `;

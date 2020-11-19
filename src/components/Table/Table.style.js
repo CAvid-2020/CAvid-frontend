@@ -6,7 +6,7 @@ export const Table = styled.table`
   border-collapse: collapse;
   border: 1px solid ${({ theme }) => theme.textColor};
   color: ${({ theme }) => theme.textColor};
-  background-color: ${({ theme }) => theme.lightGreen};
+  background-color: ${({ theme }) => theme.secondaryColor};
   @media only screen and (max-width: 500px) {
     font-size: small;
   }
@@ -23,13 +23,13 @@ export const Tbody = styled.tbody`
 
 export const Tr = styled.tr`
   &:hover {
-    background-color: ${({ theme }) => theme.onhover};
-    color: white;
+    background-color: ${({ theme }) => theme.primaryColorBackground};
+    color: ${({ theme }) => theme.primaryColorLighter};
     Button {
-      background-color: ${({ theme }) => theme.onhover};
+      background-color: ${({ theme }) => theme.primaryColor};
       &:hover {
-        background-color: ${({ theme }) => theme.textColor};
-        color: white;
+        background-color: ${({ theme }) => theme.primaryColor};
+        color: ${({ theme }) => theme.textColor};
       }
     }
   }
@@ -38,7 +38,7 @@ export const Tr = styled.tr`
   & th {
     padding: 0.6em;
     color: white;
-    background-color: ${({ theme }) => theme.darkGreen};
+    background-color: ${({ theme }) => theme.primaryColor};
     border: 1px solid ${({ theme }) => theme.textColor};
   }
   & td {
