@@ -6,6 +6,9 @@ const RegisterLazy = lazy(() =>
   import("./pages/RegisterAttendance/RegisterAttendance")
 );
 const CheckLazy = lazy(() => import("./pages/CheckAttendance/CheckAttendance"));
+const CheckRegisterLazy = lazy(() =>
+  import("./pages/CheckRegister/CheckRegister")
+);
 
 function Routes() {
   return (
@@ -15,6 +18,7 @@ function Routes() {
         <Switch>
           <Route exact path="/" component={RegisterLazy} />
           <Route exact path="/check" component={CheckLazy} />
+          <Route exact path="/checkregister" component={CheckRegisterLazy} />
         </Switch>
       </Suspense>
     </Router>

@@ -31,6 +31,22 @@ function Table({ students, callback, tharr, deletes }) {
                     </td>
                   </S.Tr>
                 );
+              case "http://localhost:3000/checkregister":
+                return (
+                  <S.Tr key={student.id}>
+                    <td>{student.name}</td>
+                    <td>{student.surname}</td>
+                    <td>{student.email}</td>
+                    <td>
+                      {
+                        <Button handleClick={deletes} value={student.id}>
+                          Delete
+                        </Button>
+                      }
+                    </td>
+                  </S.Tr>
+                );
+
               default:
                 return (
                   <S.Tr key={student.id}>
