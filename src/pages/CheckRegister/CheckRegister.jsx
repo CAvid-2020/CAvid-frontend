@@ -75,7 +75,7 @@ function CheckRegister() {
       <S.Form
         onSubmit={(e) => {
           e.preventDefault();
-          sendData(students, name, surname, email);
+          sendData(name, surname, email);
         }}
       >
         <h2>Add Student Details</h2>
