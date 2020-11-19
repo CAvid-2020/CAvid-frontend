@@ -11,8 +11,6 @@ function sendData(studentid, history) {
     },
     body: JSON.stringify({
       student_id: studentid,
-      attendance: "true",
-      date: new Date(),
     }),
   })
     .then((res) => res.json())
@@ -25,7 +23,7 @@ function sendData(studentid, history) {
 function RegisterAttendance() {
   const [students, setStudents] = useState();
   const [studentid, setStudentsId] = useState();
-  const [time, setTime] = useState();
+  const time = 19;
   const history = useHistory();
 
   function validateData() {
@@ -47,11 +45,6 @@ function RegisterAttendance() {
       .then((data) => {
         setStudents(data);
       });
-    fetch(`http://localhost:8080/date`)
-      .then((res) => res.json())
-      .then((data) => {
-        setTime(data);
-      });
   }, []);
 
   return (
@@ -66,6 +59,7 @@ function RegisterAttendance() {
             }}
           >
             <Table
+              tharr={[{ th: "Name" }, { th: "Surname" }, { th: "Attendance" }]}
               students={students}
               callback={(e) => {
                 setStudentsId(e.target.value);

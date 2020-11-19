@@ -2,25 +2,12 @@ import React from "react";
 import * as S from "./Table.style";
 import { RadioButton, Button } from "../../components";
 
-function Table({ students, callback, thArr, deletes }) {
-  switch (window.location.href) {
-    case "http://localhost:3000/check":
-      thArr = [
-        { th: "Name" },
-        { th: "Surname" },
-        { th: "Email" },
-        { th: "Attendance" },
-      ];
-      break;
-    default:
-      thArr = [{ th: "Name" }, { th: "Surname" }, { th: "Attendance" }];
-  }
-
+function Table({ students, callback, tharr, deletes }) {
   return (
     <S.Table>
       <S.Thead>
         <S.Tr>
-          {thArr.map((item) => (
+          {tharr.map((item) => (
             <th key={item.th}>{item.th}</th>
           ))}
         </S.Tr>
