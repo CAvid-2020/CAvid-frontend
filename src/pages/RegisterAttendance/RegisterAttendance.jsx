@@ -74,6 +74,17 @@ function RegisterAttendance() {
       });
   }, []);
 
+  function checkPassword() {
+    fetch(`http://localhost:8080/attendance`)
+      .then((res) => res.json())
+      .then((data) => {
+        const pass = prompt("Enter password");
+        if (data === pass) {
+          return "Its ok";
+        }
+      });
+  }
+
   return (
     <>
       {time() >= 18 && time() <= 22 ? (
